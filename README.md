@@ -20,4 +20,4 @@ it will analyze it.
 
 It was made in Teachable Machine(again) and trained by [this data](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
 
-**Sahal Mulki**
+_**Sahal Mulki**_
