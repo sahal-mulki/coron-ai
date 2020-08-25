@@ -10,8 +10,6 @@
  </a>
 </p>
 
-***
-
 A neural network to detect pneumonia in Patients.
 
 ## Examples:
