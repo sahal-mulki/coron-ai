@@ -1,4 +1,17 @@
-# coron-ai
+# Coron-ai
+
+<p align="center">
+  <a href="https://github.com/sahal-mulki/coron-ai/issues">
+    <img src="https://img.shields.io/github/issues/sahal-mulki/coron-ai">
+ </a>
+  <a href="https://github.com/sahal-mulki/coron-ai/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/sahal-mulki/coron-ai">
+  </a>
+ </a>
+</p>
+
+***
+
 A neural network to detect pneumonia in Patients.
 
 ## Examples:
