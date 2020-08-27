@@ -24,8 +24,7 @@ A neural network to detect pneumonia in Patients.
 
 ## How to use it:
 
-Just put your photo as photo.jpg in the keras_coron-ai folder and then
-it will analyze it.
+Select your file and then it will show the result
 
 ## How it was made it:
 
