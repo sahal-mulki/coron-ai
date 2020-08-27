@@ -1,16 +1,37 @@
+print("Loading...")
+
 import tensorflow.keras
 from PIL import Image, ImageOps
 import numpy as np
-import tkinter as tk
-import time
+from tkinter import filedialog, ttk, Tk
 
-input0 = ("Put your photo as photo.jpg in this folder")
+LARGE_FONT= ("Verdana", 12)
+NORM_FONT = ("Helvetica", 10)
+SMALL_FONT = ("Helvetica", 8)
+
+def popupmsg(msg):
+    popup = Tk()
+    popup.wm_title("!")
+    label = ttk.Label(popup, text=msg, font=NORM_FONT)
+    label.pack(side="top", fill="x", pady=10)
+    B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
+    B1.pack()
+    popup.mainloop()
+
+print("Select your file:")
+
+root = Tk()
+root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select file")
+
+
+print("")
+root.destroy()
 
 # Disable scientific notation for clarity
-np.set_printoptions(suppress=True)
+np.set_printoptions(suppress=False)
 
 # Load the model
-model = tensorflow.keras.models.load_model('keras_model.h5')
+model = tensorflow.keras.models.load_model('keras_model.h5', compile=False)
 
 # Create the array of the right shape to feed into the keras model
 # The 'length' or number of images you can put into the array is
@@ -18,7 +39,7 @@ model = tensorflow.keras.models.load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-image = Image.open('photo.jpg').convert('RGB')
+image = Image.open(root.filename).convert('RGB')
 
 #resize the image to a 224x224 with the same strategy as in TM2:
 #resizing the image to be at least 224x224 and then cropping from the center
@@ -52,7 +73,8 @@ result1 = float(predic5[0])
 result2 = float(predic5[1])
     
 if result1 < result2:
-    print("This is a photo of pnuemonia")
-        
+    popupmsg("This is a photo of pnuemonia")
+    
 elif result1 > result2:
-    print("This is a photo of a normal photo")
+    popupmsg("This is a photo of a normal lung")
+
