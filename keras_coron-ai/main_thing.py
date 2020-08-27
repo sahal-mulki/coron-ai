@@ -11,7 +11,7 @@ SMALL_FONT = ("Helvetica", 8)
 
 def popupmsg(msg):
     popup = Tk()
-    popup.wm_title("!")
+    popup.wm_title("Result")
     label = ttk.Label(popup, text=msg, font=NORM_FONT)
     label.pack(side="top", fill="x", pady=10)
     B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
@@ -22,7 +22,6 @@ print("Select your file:")
 
 root = Tk()
 root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select file")
-
 
 print("")
 root.destroy()
@@ -71,10 +70,19 @@ predic5 = predic4.split(" ")
 
 result1 = float(predic5[0])
 result2 = float(predic5[1])
+
+result1 = result1 * 100
+result2 = result2 * 100
+
+if result2 == 100:
+    result1 = 0
+
+if result1 == 100:
+    result2 = 0
     
 if result1 < result2:
-    popupmsg("This is a photo of pnuemonia")
+    popupmsg("This is Pneumonia : " + str(result2) + "%")
     
 elif result1 > result2:
-    popupmsg("This is a photo of a normal lung")
+    popupmsg("This is Normal : " + str(result1) + "%")
 
