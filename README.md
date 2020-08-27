@@ -1,4 +1,4 @@
-# Coron-ai
+# Xrayble
 
 <p align="center">
   <a href="https://github.com/sahal-mulki/coron-ai/issues">
