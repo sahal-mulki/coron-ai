@@ -29,6 +29,6 @@ it will analyze it.
 
 ## How it was made it:
 
-It was made in Teachable Machine(again) and trained by [this data](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
+It was made in Teachable Machine(again) and trained by [this data](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) [and this](https://www.kaggle.com/chriszola/xray-lung-image-dataset)
 
 _**Sahal Mulki**_
