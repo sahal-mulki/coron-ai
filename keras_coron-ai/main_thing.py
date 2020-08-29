@@ -1,34 +1,54 @@
-print("Loading...")
-
 import tensorflow.keras
-from PIL import Image, ImageOps
+from PIL import ImageOps
 import numpy as np
 from tkinter import filedialog, ttk, Tk
+from PIL import ImageTk, Image
+from tkinter.filedialog import askopenfilename
+from tkinter import messagebox
 
-LARGE_FONT= ("Verdana", 12)
-NORM_FONT = ("Helvetica", 10)
-SMALL_FONT = ("Helvetica", 8)
+NORM_FONT = ("Verdana", 11)
 
-def popupmsg(msg):
+def pick_file():
+    root2 = Tk()
+    root2.withdraw()
+    root2.filename = askopenfilename()
+
+    global filename
+    filename = root2.filename
+  
+def popupmsg(image, msg):
     popup = Tk()
     popup.wm_title("Result")
+
+    img = Image.open(image)
+    image = ImageOps.fit(img, (300, 300))
+    
+    photo = ImageTk.PhotoImage(image)
+    lab = ttk.Label(image=photo)
+    lab.pack()
+    
     label = ttk.Label(popup, text=msg, font=NORM_FONT)
-    label.pack(side="top", fill="x", pady=10)
+
+    label.pack(anchor='center')
     B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
     B1.pack()
     popup.mainloop()
 
-print("Select your file:")
+def popupmsg2(msg):
+    popup = Tk()
+    popup.wm_title("Analyze?")
+    
+    label = ttk.Label(popup, text=msg, font=NORM_FONT)
 
-root = Tk()
-root.filename =  filedialog.askopenfilename(initialdir = "/", title = "Select file")
+    label.pack(anchor='center')
+    B1 = ttk.Button(popup, text="Okay", command = popup.destroy)
+    B1.pack()
+    popup.mainloop()
 
+pick_file()
+
+messagebox.showinfo("Analyze?", "Analyze? It will take about 30 seconds")
 print("")
-root.destroy()
-
-# Disable scientific notation for clarity
-np.set_printoptions(suppress=False)
-
 # Load the model
 model = tensorflow.keras.models.load_model('keras_model.h5', compile=False)
 
@@ -38,7 +58,7 @@ model = tensorflow.keras.models.load_model('keras_model.h5', compile=False)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-image = Image.open(root.filename).convert('RGB')
+image = Image.open(filename).convert('RGB')
 
 #resize the image to a 224x224 with the same strategy as in TM2:
 #resizing the image to be at least 224x224 and then cropping from the center
@@ -81,8 +101,8 @@ if result1 == 100:
     result2 = 0
     
 if result1 < result2:
-    popupmsg("This is Pneumonia : " + str(result2) + "%")
+    popupmsg(filename, "This is Pneumonia : " + str(result2) + "%")
     
 elif result1 > result2:
-    popupmsg("This is Normal : " + str(result1) + "%")
+    popupmsg(filename, "This is Normal : " + str(result1) + "%")
 
