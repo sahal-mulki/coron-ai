@@ -1,7 +1,7 @@
 # Xrayble
 
 <p align="center">
-    <a href="#python.org" alt="python">
+    <a href="https://python.org" alt="python">
         <img src="https://forthebadge.com/images/badges/made-with-python.svg" /></a>
     <a href="LICENSE" alt="license">
         <img src="https://img.shields.io/github/license/sahal-mulki/xrayble?style=for-the-badge" /></a>
