@@ -1,13 +1,12 @@
 # Xrayble
 
 <p align="center">
-  <a href="https://github.com/sahal-mulki/coron-ai/issues">
-    <img src="https://img.shields.io/github/issues/sahal-mulki/coron-ai">
- </a>
-  <a href="https://github.com/sahal-mulki/coron-ai/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/sahal-mulki/coron-ai">
-  </a>
- </a>
+    <a href="#python.org" alt="python">
+        <img src="https://forthebadge.com/images/badges/made-with-python.svg" /></a>
+    <a href="LICENSE" alt="license">
+        <img src="https://img.shields.io/github/license/sahal-mulki/xrayble?style=for-the-badge" /></a>
+    <a href="#issues" alt="Issues">
+        <img src="https://img.shields.io/github/issues/sahal-mulki/xrayble?style=for-the-badge" /></a>
 </p>
 
 A neural network to detect pneumonia in Patients.
