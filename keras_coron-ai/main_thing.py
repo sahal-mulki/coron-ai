@@ -102,7 +102,9 @@ if result1 == 100:
     
 if result1 < result2:
     popupmsg(filename, "This is Pneumonia : " + str(result2) + "%")
+    os._exit()
     
 elif result1 > result2:
     popupmsg(filename, "This is Normal : " + str(result1) + "%")
+    os._exit()
 
