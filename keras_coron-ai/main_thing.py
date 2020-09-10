@@ -12,6 +12,28 @@ import PIL
 import tensorflow as tf
 import numpy as np
 
+model_selection = os.getenv('model_select')
+
+if model_selection == None:
+    input0 = input("Would you like to use .(H)5 or (S)avedModel")
+    if input0 == "H":
+        os.environ['model_select'] = 'H'
+        global model
+        model = keras.models.load_model('xrayble_2.h5')
+    elif input0 == "S":
+        os.environ['model_select'] = 'S'
+        model = keras.models.load_model('xrayble_2')
+elif model_selection == "H":
+    model = keras.models.load_model('xrayble_2.h5')
+elif model_selection == "S":
+    model = keras.models.load_model('xrayble_2')
+
+
+if input0 == "H":
+    model = keras.models.load_model('xrayble_2.h5')
+elif input0 == "S":
+    model = keras.models.load_model('xrayble_2')
+
 img_height = 180
 img_width = 180
 
@@ -25,16 +47,9 @@ def pick_file():
     global filename
     filename = root2.filename
   
-def popupmsg(image, msg):
+def popupmsg(msg):
     popup = Tk()
     popup.wm_title("Result")
-
-    img = Image.open(image)
-    image = ImageOps.fit(img, (300, 300))
-    
-    photo = ImageTk.PhotoImage(image)
-    lab = ttk.Label(image=photo)
-    lab.pack()
     
     label = ttk.Label(popup, text=msg, font=NORM_FONT)
 
@@ -72,4 +87,4 @@ score = tf.nn.softmax(predictions[0])
 wow = [class_names[np.argmax(score)], 100 * np.max(score)]
 
 yay = "This is " + wow[0] + ": " + str(wow[1])
-popupmsg(filename, yay)
+popupmsg(yay)
