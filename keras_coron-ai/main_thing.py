@@ -51,7 +51,7 @@ def popupmsg2(msg):
 
 pick_file()
 
-messagebox.showinfo("Analyze?", "Analyze? It will take about 30 seconds")
+messagebox.showinfo("Analyze?", "Analyze?")
 print("")
 
 img = keras.preprocessing.image.load_img(
