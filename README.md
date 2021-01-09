@@ -29,4 +29,8 @@ Select your file and then it will show the result
 
 It was made in tensorflow and trained by [this data](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) [and this](https://www.kaggle.com/chriszola/xray-lung-image-dataset)
 
+## A real working demo:
+
+pneumoniacheck.herokuapp.com
+
 _**Sahal Mulki**_
