@@ -1,4 +1,4 @@
-# Xrayble
+# PneumoniaCheck
 
 <p align="center">
     <a href="https://python.org" alt="python">
