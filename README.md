@@ -11,16 +11,6 @@
 
 A neural network to detect pneumonia in Patients.
 
-## Examples:
-
-### Pnuemonia Photo:
-
-![Image1](https://raw.githubusercontent.com/sahal-mulki/coron-ai/master/coron-ai%201.PNG)
-
-### Normal Photo:
-
-![Image2](https://raw.githubusercontent.com/sahal-mulki/coron-ai/master/coron-ai%202.PNG)
-
 ## How to use it:
 
 Select your file and then it will show the result
